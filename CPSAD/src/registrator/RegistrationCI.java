@@ -1,6 +1,11 @@
-package interfaces;
+package registrator;
 
 import java.util.Set;
+
+import interfaces.ConnectionInfo;
+import interfaces.P2PAddressI;
+import interfaces.PositionI;
+
 
 public interface RegistrationCI {
 	Set<ConnectionInfo> registerInternal(P2PAddressI address, 
