@@ -9,4 +9,6 @@ public interface IPAddressI {
 		default boolean isIPAddress() {
 			return true;
 		}
+
+		boolean equals(AddressI a);
 }
