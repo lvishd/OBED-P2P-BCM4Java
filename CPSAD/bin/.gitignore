@@ -1,2 +1,13 @@
 /interfaces/
 /registrator/
+/components/
+/composants/
+/connecteurs/
+/test/
+/connectors/
+/ports/
+/message/
+/position/
+/IPAddress/
+/P2PAddress/
+/route/

@@ -1,13 +1,11 @@
-package registrator;
+package interfaces;
 
 import java.util.Set;
 
-import interfaces.ConnectionInfo;
-import interfaces.P2PAddressI;
-import interfaces.PositionI;
+import fr.sorbonne_u.components.interfaces.OfferedCI;
 
 
-public interface RegistrationCI {
+public interface RegistrationCI extends OfferedCI{
 	Set<ConnectionInfo> registerInternal(P2PAddressI address, 
 			String communicationInboundPort, 
 			PositionI initialPosition, 
