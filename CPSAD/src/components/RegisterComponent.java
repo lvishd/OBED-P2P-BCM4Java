@@ -74,7 +74,7 @@ public class RegisterComponent extends AbstractComponent {
 	}
 
 	
-	Set<ConnectionInfo> registerInternal(P2PAddressI address, String communicationInboundPortURI,
+	public Set<ConnectionInfo> registerInternal(P2PAddressI address, String communicationInboundPortURI,
 			PositionI initialPosition, double initialRange) {
 		System.out.println("Register avec un nouveau noeud d'addresse IP = " + address);
 		Set<ConnectionInfo> neighbores = getNeighbours(address, initialPosition, initialRange, 1);
@@ -85,7 +85,7 @@ public class RegisterComponent extends AbstractComponent {
 		return neighbores;
 	}
 	
-	Set<ConnectionInfo> registerAccessPoint(P2PAddressI address, String communicationInboundPortURI,
+	public Set<ConnectionInfo> registerAccessPoint(P2PAddressI address, String communicationInboundPortURI,
 			PositionI initialPosition, double initialRange, String routingInboundPortURI) {
 		System.out.println("Register avec un nouvel Access Point d'addresse IP = " + address);
 		Set<ConnectionInfo> neighbores = getNeighbours(address, initialPosition, Double.POSITIVE_INFINITY, 2);

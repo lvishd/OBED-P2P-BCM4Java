@@ -2,6 +2,7 @@ package P2PAddress;
 
 import java.io.Serializable;
 
+
 import interfaces.AddressI;
 import interfaces.P2PAddressI;
 
@@ -46,6 +47,20 @@ public class P2PAddress implements P2PAddressI,Serializable {
 
 	public String getAddr() {
 		return addr;
+	}
+	
+
+	
+
+	@Override
+	public int hashCode() {
+		return getAddr().hashCode();
+	}
+	
+	
+	@Override
+	public String toString() {
+		return getAddr();
 	}
 
 }

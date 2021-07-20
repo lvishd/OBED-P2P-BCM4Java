@@ -5,10 +5,11 @@ import java.util.Set;
 import components.RegisterComponent;
 import fr.sorbonne_u.components.ComponentI;
 import fr.sorbonne_u.components.ports.AbstractInboundPort;
-import interfaces.ConnectionInfo;
 import interfaces.P2PAddressI;
 import interfaces.PositionI;
 import interfaces.RegistrationCI;
+
+import connectors.ConnectionInfo;
 
 public class RegisterServicesInboundPort extends AbstractInboundPort implements RegistrationCI 
 {
@@ -35,20 +36,22 @@ public class RegisterServicesInboundPort extends AbstractInboundPort implements 
 	@Override
 	public Set<ConnectionInfo> registerInternal(P2PAddressI address, String communicationInboundPort,
 			PositionI initialPosition, double initialRange, String routingInboundPortURI) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return (Set<ConnectionInfo>) getOwner().handleRequest(c->((RegisterComponent)c).registerInternal(address, communicationInboundPort, initialPosition, initialRange));
+		
 	}
 
-	@Override
-	public Set<ConnectionInfo> registerAccessPoint(P2PAddressI address, String communicationInboundPort,
-			PositionI initialPosition, double initialRange) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 	@Override
 	public void unregister(P2PAddressI address) throws Exception {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+	@Override
+	public Set<ConnectionInfo> registerAccessPoint(P2PAddressI address, String communicationInboundPort,
+			PositionI initialPosition, double initialRange,String routingInboundPortURI) throws Exception {
+			return (Set<ConnectionInfo>) getOwner().handleRequest(c->((RegisterComponent)c).registerAccessPoint(address, communicationInboundPort, initialPosition, initialRange,routingInboundPortURI));
 	}
 }

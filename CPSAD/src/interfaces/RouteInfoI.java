@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface RouteInfo {
+public interface RouteInfoI {
 	AddressI getDestination();
 	int getNumberOfHops ();
 	

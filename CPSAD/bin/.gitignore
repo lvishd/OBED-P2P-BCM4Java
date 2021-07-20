@@ -1,14 +1,6 @@
 /interfaces/
-/registrator/
 /components/
-/composants/
-/connecteurs/
-/test/
 /connectors/
 /ports/
+/test/
 /message/
-/position/
-/IPAddress/
-/P2PAddress/
-/route/
-/nodeTable/

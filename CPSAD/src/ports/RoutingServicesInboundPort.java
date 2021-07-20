@@ -1,5 +1,13 @@
 package ports;
 
-public class RoutingServicesInboundPort {
+import java.util.Set;
 
+
+
+public class RoutingServicesInboundPort extends AbstractInboundPort implements RoutingManagementCI {
+	
+
+
+	
+	
 }
