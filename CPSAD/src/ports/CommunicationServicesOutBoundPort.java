@@ -44,9 +44,10 @@ public class CommunicationServicesOutBoundPort extends AbstractOutboundPort impl
 
 	@Override
 	public void connect(P2PAddressI address, String communicationInboundPortURI, String routingInboundPortURI)
-			throws Exception {
-		((CommunicationCI)getConnector()).connect(address, communicationInboundPortURI,routingInboundPortURI);
-		
+			throws Exception {	
+		System.out.println("tata");
+		((CommunicationCI) this.getConnector()).connect(address, communicationInboundPortURI, routingInboundPortURI);
+		System.out.println("toto");
 	}
 
 

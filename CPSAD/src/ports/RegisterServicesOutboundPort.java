@@ -33,12 +33,14 @@ public class RegisterServicesOutboundPort extends AbstractOutboundPort implement
 	@Override
 	public Set<connectors.ConnectionInfo> registerInternal(P2PAddressI address, String communicationInboundPort,
 			PositionI initialPosition, double initialRange,String routingInboundPortURI) throws Exception {
-		return ((RegistrationCI)getConnector()).registerInternal(address, communicationInboundPort, initialPosition, initialRange, communicationInboundPort);
+		
+		Set<connectors.ConnectionInfo> res = ((RegistrationCI)getConnector()).registerInternal(address, communicationInboundPort,
+				initialPosition, initialRange, routingInboundPortURI);
+		
+		return res;
+	
 	}
 
-
-
-	
 
 	@Override
 	public Set<connectors.ConnectionInfo> registerAccessPoint(P2PAddressI address, String communicationInboundPort,

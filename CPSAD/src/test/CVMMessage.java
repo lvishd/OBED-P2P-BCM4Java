@@ -1,8 +1,8 @@
 package test;
 
-
 import P2PAddress.P2PAddress;
 import components.CommunicationComponent;
+//import components.CommunicationComponent
 import components.RegisterComponent;
 import fr.sorbonne_u.components.AbstractComponent;
 import fr.sorbonne_u.components.cvm.AbstractCVM;
@@ -16,12 +16,21 @@ public class CVMMessage extends AbstractCVM {
 
 	@Override
 	public void deploy() throws Exception {
+
 		AbstractComponent.createComponent(RegisterComponent.class.getCanonicalName(), new Object[] {});
+		
 		AbstractComponent.createComponent(CommunicationComponent.class.getCanonicalName(),
-		new Object[] { new P2PAddress("192.168.25.1"), new Position(1, 2), 1120.0 });
+				new Object[] { new P2PAddress("192.168.25.1"), new Position(1, 2), 1120.0 });
+		
 		AbstractComponent.createComponent(CommunicationComponent.class.getCanonicalName(),
-				new Object[] { new P2PAddress("192.168.25.2"), new Position(2,3), 1120.0 });
-				
+				new Object[] { new P2PAddress("192.168.25.2"), new Position(2, 2), 1120.0 });
+		
+//		AbstractComponent.createComponent(CommunicationComponent.class.getCanonicalName(),
+//				new Object[] { new P2PAddress("192.168.25.3"), new Position(1, 3), 1120.0 });
+//		
+//		AbstractComponent.createComponent(CommunicationComponent.class.getCanonicalName(),
+//				new Object[] { new P2PAddress("192.168.25.3"), new Position(1, 2), 1120.0 });
+		
 		super.deploy();
 	}
 

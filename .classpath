@@ -6,6 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/brenda/Desktop/CPSAD/Outils-INSTA-2021/Outils/BCM4Java-17062021.jar"/>
+	<classpathentry kind="lib" path="C:/Users/erwan/Desktop/CPS/Outils-INSTA-2021/Outils/BCM4Java-17062021.jar"/>
 	<classpathentry kind="output" path="CPSAD/bin"/>
 </classpath>
