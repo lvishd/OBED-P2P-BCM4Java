@@ -1,7 +1,11 @@
 package interfaces;
 
-public interface IPAddressI {
-	
+/**
+ * Interface permettant de créer des classes de type IPAddress.
+ * @author OBED
+ */
+public interface IPAddressI extends AddressI {
+		
        default boolean isP2PAddress() {
 			return false;
 		}
@@ -9,6 +13,4 @@ public interface IPAddressI {
 		default boolean isIPAddress() {
 			return true;
 		}
-
-		boolean equals(AddressI a);
 }

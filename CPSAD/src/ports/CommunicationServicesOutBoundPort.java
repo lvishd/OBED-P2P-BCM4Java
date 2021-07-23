@@ -1,6 +1,5 @@
 package ports;
 
-import interfaces.AddressI;
 import interfaces.CommunicationCI;
 import interfaces.MessageI;
 import interfaces.P2PAddressI;
@@ -23,25 +22,6 @@ public class CommunicationServicesOutBoundPort extends AbstractOutboundPort impl
 		super(uri,  CommunicationCI.class, owner);
 	}
 
-	
-
-
-	@Override
-	public int hasRouteFor(AddressI address) throws Exception {
-		return ((CommunicationCI)getConnector()).hasRouteFor(address);
-	}
-
-	@Override
-	public void ping() {
-		try {
-			((CommunicationCI)getConnector()).ping();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-
 	@Override
 	public void connect(P2PAddressI address, String communicationInboundPortURI, String routingInboundPortURI)
 			throws Exception {	
@@ -50,17 +30,17 @@ public class CommunicationServicesOutBoundPort extends AbstractOutboundPort impl
 		System.out.println("toto");
 	}
 
-
 	@Override
 	public void routeMessage(MessageI m) {
-		// TODO Auto-generated method stub
 		try {
 			((CommunicationCI)getConnector()).routeMessage(m);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
+		}	
 	}
 
+	@Override
+	public void ping() {
+		System.out.println("Ping!");
+	}
 }

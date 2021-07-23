@@ -1,51 +1,51 @@
 package IPAddress;
 
-
 import java.io.Serializable;
 
 import interfaces.AddressI;
 import interfaces.IPAddressI;
 
-public class IPAddress implements IPAddressI, Serializable{
+/**
+ * Classe initialisant une addresse réseau.
+ * @author OBED
+ */
+public class IPAddress implements IPAddressI, Serializable {
+	/** Numéro de série pour chaque instance.*/
 	private static final long serialVersionUID = 1L;
-	private String addr;
+	/** L'addresse elle-même. */
+	private String address;
 	
-	
-	public IPAddress(String addr) 
-	{
-		this.addr = addr;
+	/**
+	 * Constructeur d'une addresse IP standard.
+	 * @param address la chaine de caractère que l'on souhaite donner à l'instance.
+	 */
+	public IPAddress(String address) {
+		this.address = address;
 	}
 	
-	public String getAddr() 
-	{
-		return addr;
+	/**
+	 * Permet d'obtenir la chaine de caractère de l'addresse depuis les autres classes.
+	 * @return la chaine de caractère de l'addresse.
+	 */
+	public String getAddress() {
+		return address;
 	}
-	
 
 	@Override
-	public boolean isP2PAddress() 
-	{
-		// TODO Auto-generated method stub
+	public boolean isP2PAddress()  {
 		return false;
 	}
 
 	@Override
-	public boolean isIPAddress() 
-	{
-		// TODO Auto-generated method stub
+	public boolean isIPAddress() {
 		return true;
 	}
 
 	@Override
-	public boolean equals(AddressI a) 
-	{
-		// TODO Auto-generated method stub
-		if(!a.isIPAddress())
-			return false;
-		IPAddress address = (IPAddress)  a;
-		if(!this.addr.equals(address.addr))
-			return false;
+	public boolean equals(AddressI address) {
+		if (!address.isIPAddress()) return false;
+		IPAddress other = (IPAddress) address;
+		if (!this.address.equals(other.address)) return false;
 		return true;
 	}
-
 }

@@ -2,65 +2,64 @@ package P2PAddress;
 
 import java.io.Serializable;
 
-
 import interfaces.AddressI;
 import interfaces.P2PAddressI;
 
-public class P2PAddress implements P2PAddressI,Serializable {
-
-	
+/**
+ * Classe initialisant une addresse réseau P2P.
+ * @author OBED
+ */
+public class P2PAddress implements P2PAddressI, Serializable {
+	/** Numéro de série pour chaque instance.*/
 	private static final long serialVersionUID = 1L;
-	private String addr;
+	/** L'addresse elle-même. */
+	private String address;
 	
-	public P2PAddress(String addr) 
-	{
-		this.addr = addr;
+	/**
+	 * Constructeur d'une addresse IP en P2P.
+	 * @param address la chaine de caractère que l'on souhaite donner à l'instance.
+	 */
+	public P2PAddress(String address) {
+		this.address = address;
+	}
+
+	/**
+	 * Permet d'obtenir la chaine de caractère de l'addresse depuis les autres classes.
+	 * @return la chaine de caractère de l'addresse.
+	 */
+	public String getAddress() {
+		return address;
 	}
 
 	@Override
-	public boolean isP2PAddress()
-	{
-		// TODO Auto-generated method stub
+	public boolean isP2PAddress() {
 		return true;
 	}
 
 	@Override
 	public boolean isIPAddress() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean equals(AddressI a) 
-	{
-		if(a == null)
-		{
+	public boolean equals(AddressI address) {
+		if(address == null) {
 			return false;
 		}
-		if(!a.isP2PAddress())
-			return false;
-		P2PAddress address = (P2PAddress)  a;
-		if(!this.addr.equals(address.addr))
-			return false;
+		if(!address.isP2PAddress()) return false;
+		P2PAddress other = (P2PAddress)  address;
+		if(!this.address.equals(other.address)) return false;
 		return true;
 	}
-
-	public String getAddr() {
-		return addr;
-	}
 	
-
-	
-
 	@Override
 	public int hashCode() {
-		return getAddr().hashCode();
+		return getAddress().hashCode();
 	}
-	
 	
 	@Override
 	public String toString() {
-		return getAddr();
+		return getAddress();
 	}
 
 }

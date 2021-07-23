@@ -20,15 +20,6 @@ public class RegisterServicesOutboundPort extends AbstractOutboundPort implement
 	public RegisterServicesOutboundPort(String uri, ComponentI owner) throws Exception {
 		super(uri, RegistrationCI.class,  owner);
 	}
-	
-	
-
-	@Override
-	public void unregister(P2PAddressI address) throws Exception {
-		((RegistrationCI)getConnector()).unregister(address);
-		
-	}
-
 
 	@Override
 	public Set<connectors.ConnectionInfo> registerInternal(P2PAddressI address, String communicationInboundPort,
@@ -41,11 +32,16 @@ public class RegisterServicesOutboundPort extends AbstractOutboundPort implement
 	
 	}
 
-
 	@Override
 	public Set<connectors.ConnectionInfo> registerAccessPoint(P2PAddressI address, String communicationInboundPort,
 			PositionI initialPosition, double initialRange, String routingInboundPortURI) throws Exception {
 		return ((RegistrationCI)getConnector()).registerAccessPoint(address, communicationInboundPort, initialPosition, initialRange,routingInboundPortURI);
+	}
+	
+	@Override
+	public void unregister(P2PAddressI address) throws Exception {
+		((RegistrationCI)getConnector()).unregister(address);
+		
 	}
 
 	

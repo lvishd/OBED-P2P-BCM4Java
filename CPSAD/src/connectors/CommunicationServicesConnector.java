@@ -1,7 +1,6 @@
 package connectors;
 
 import fr.sorbonne_u.components.connectors.AbstractConnector;
-import interfaces.AddressI;
 import interfaces.CommunicationCI;
 import interfaces.MessageI;
 import interfaces.P2PAddressI;
@@ -28,18 +27,7 @@ public class CommunicationServicesConnector extends AbstractConnector implements
 
 	@Override
 	public void ping() {
-		try {
-			((CommunicationCI)offering).ping();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-
-	@Override
-	public int hasRouteFor(AddressI address) throws Exception {
-		return ((CommunicationCI)offering).hasRouteFor(address);
+		System.out.println("Ping!");
 	}
 
 }

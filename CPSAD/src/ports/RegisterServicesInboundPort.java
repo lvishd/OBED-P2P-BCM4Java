@@ -11,8 +11,7 @@ import interfaces.RegistrationCI;
 
 import connectors.ConnectionInfo;
 
-public class RegisterServicesInboundPort extends AbstractInboundPort implements RegistrationCI 
-{
+public class RegisterServicesInboundPort extends AbstractInboundPort implements RegistrationCI {
 
 	
 	private static final long serialVersionUID = 1L;
@@ -45,7 +44,6 @@ public class RegisterServicesInboundPort extends AbstractInboundPort implements 
 	@Override
 	public void unregister(P2PAddressI address) throws Exception {
 		// TODO Auto-generated method stub
-		
 	}
 
 

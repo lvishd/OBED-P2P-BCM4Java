@@ -9,7 +9,13 @@ public class ConnectionInfo {
 	private String routingInboundPortURI;
 	private boolean isRouting;
 	
-	
+	/**
+	 * 
+	 * @param address
+	 * @param communicationInboundPortURI
+	 * @param routingInboundPortURI
+	 * @param isRouting
+	 */
 	public ConnectionInfo(P2PAddressI address, String communicationInboundPortURI, String routingInboundPortURI, boolean isRouting) {
 		this.address = address;
 		this.communicationInboundPortURI = communicationInboundPortURI;

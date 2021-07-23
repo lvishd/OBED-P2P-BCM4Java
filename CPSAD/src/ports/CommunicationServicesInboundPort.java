@@ -3,7 +3,6 @@ package ports;
 import components.CommunicationComponent;
 import fr.sorbonne_u.components.ComponentI;
 import fr.sorbonne_u.components.ports.AbstractInboundPort;
-import interfaces.AddressI;
 import interfaces.CommunicationCI;
 import interfaces.MessageI;
 import interfaces.P2PAddressI;
@@ -23,35 +22,30 @@ public class CommunicationServicesInboundPort extends AbstractInboundPort implem
 	}
 
 	@Override
-	public void connect(P2PAddressI address, String communicationInboudURI, String routingInboudPortURI) throws Exception {
-		getOwner().handleRequest(c -> {
-			((CommunicationComponent) c).connect(address, communicationInboudURI,routingInboudPortURI);
-			return null;
-		});
-	}
+    public void connect(P2PAddressI address, String communicationInboudURI, String routingInboudPortURI) throws Exception {
+        this.getOwner().runTask(c -> {
+            try {
+                ((CommunicationComponent) c).connect(address, communicationInboudURI, routingInboudPortURI);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
 
+	@Override
+    public void routeMessage(MessageI m) throws Exception {
+        this.getOwner().runTask(c -> {
+            try {
+                ((CommunicationComponent) c).routeMessage(m);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
 
 
 	@Override
-	public void routeMessage(MessageI m) throws Exception  { 
-		getOwner().handleRequest(c -> {
-			((CommunicationComponent) c).routeMessage(m);
-			return null;
-		});
+	public void ping() {
+		System.out.println("Ping!");
 	}
-
-	@Override
-	public int hasRouteFor(AddressI address) throws Exception {
-		return getOwner().handleRequest(c -> ((CommunicationComponent) c).hasRouteFor(address));
-	}
-
-	@Override
-	public void ping() throws Exception {
-		getOwner().handleRequest(c -> {
-			((CommunicationCI) c).ping();
-			return null;
-		});
-	}
-
-
 }

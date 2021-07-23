@@ -1,24 +1,32 @@
 package test;
 
-
-import components.RegisterComponent;
 import fr.sorbonne_u.components.AbstractComponent;
 import fr.sorbonne_u.components.cvm.AbstractCVM;
 
+import components.RegisterComponent;
+
+/**
+ * Classe Main permettant de tester le simulateur.
+ * @author OBED
+ */
 public class CVMRegister extends AbstractCVM {
 
-	public CVMRegister() throws Exception {
-
-	}
+	/**
+	 * Constructeur vide avec exception imposée par l'interface.
+	 * @throws Exception
+	 */
+	public CVMRegister() throws Exception {}
 
 	@Override
 	public void deploy() throws Exception {
-		
 		AbstractComponent.createComponent(RegisterComponent.class.getCanonicalName(), new Object[] {});
-	
 		super.deploy();
 	}
-
+	
+	/**
+	 * Méthode main permettant de déployer le simulateur.
+	 * @param args les arguments de lancement du programme.
+	 */
 	public static void main(String[] args) {
 		try {
 			CVMRegister c = new CVMRegister();
