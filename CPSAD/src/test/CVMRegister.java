@@ -13,7 +13,7 @@ public class CVMRegister extends AbstractCVM {
 
 	/**
 	 * Constructeur vide avec exception imposée par l'interface.
-	 * @throws Exception
+	 * @throws Exception une exception.
 	 */
 	public CVMRegister() throws Exception {}
 

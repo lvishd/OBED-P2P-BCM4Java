@@ -16,14 +16,14 @@ public interface RoutingManagementCI extends OfferedCI,RequiredCI {
 	 * Mets à jour le routing de la route du voisin et les informations.
 	 * @param neighbour l'addresse du noeud voisin.
 	 * @param routes la liste des routes et les informations qui leurs appartiennent. 
-	 * @throws Exception
+	 * @throws Exception une exception.
 	 */
 	void updateRouting(P2PAddressI neighbour, Set<RouteInfo> routes) throws Exception;
 	/**
 	 * Mets à jour le point d'accès courrant du voisin.
 	 * @param neighbour l'addresse du noeud voisin.
 	 * @param numberOfHops le nombre d'étapes.
-	 * @throws Exception
+	 * @throws Exception une exception.
 	 */
 	void updateAccessPoint(P2PAddressI neighbour, int numberOfHops) throws Exception;
 }

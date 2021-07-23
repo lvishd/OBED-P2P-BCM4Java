@@ -13,18 +13,19 @@ public interface CommunicationCI extends OfferedCI,RequiredCI {
 	 * @param address l'addresse du noeud avec lequel se connecter
 	 * @param communicationInboundPortURI le port entrant de communication.
 	 * @param routingInboundPortURI le port entrant du routeur. 
-	 * @throws Exception
+	 * @throws Exception une exception.
 	 */
 	void connect (P2PAddressI address, String communicationInboundPortURI, String routingInboundPortURI) throws Exception;
 	/**
 	 * Permet de router le message.
 	 * @param m le message.
-	 * @throws Exception
+	 * @throws Exception une exception.
 	 */
 	void routeMessage(MessageI m) throws Exception;
 	
-	/*
+	/**
 	 * Fait un ping.
+	 * @throws Exception une exception.
 	 */
 	void ping() throws Exception;
 }

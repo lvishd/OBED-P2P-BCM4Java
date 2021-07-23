@@ -18,7 +18,7 @@ public interface RegistrationCI extends OfferedCI, RequiredCI{
 	 * @param initialRange la portée initiale.
 	 * @param routingInboundPortURI l'URI du port entrant du router.
 	 * @return une collection de tous les nouveaux noeuds voisins qui peuvent router avec nous même.
-	 * @throws Exception
+	 * @throws Exception une exception.
 	 */
 	Set<connectors.ConnectionInfo> registerInternal(P2PAddressI address, 
 					String communicationInboundPort,PositionI initialPosition, 
@@ -33,7 +33,7 @@ public interface RegistrationCI extends OfferedCI, RequiredCI{
 	 * @param initialRange la portée initiale.
 	 * @param routingInboundPortURI l'URI du port entrant du router.
 	 * @return une collection de tous les nouveaux noeuds voisins qui peuvent router avec nous même.
-	 * @throws Exception
+	 * @throws Exception une exception.
 	 */
 	Set<connectors.ConnectionInfo> registerAccessPoint(P2PAddressI address, 
 					String communicationInboundPort, 
@@ -43,7 +43,7 @@ public interface RegistrationCI extends OfferedCI, RequiredCI{
 	/**
 	 * Permet de désenregister une address dans le simulateur.
 	 * @param address l'address que l'on souhaite retirer.
-	 * @throws Exception
+	 * @throws Exception une exception.
 	 */
 	void unregister(P2PAddressI address) throws Exception;
 }

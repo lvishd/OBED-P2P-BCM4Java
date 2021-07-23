@@ -3,11 +3,16 @@ package connectors;
 import java.util.Set;
 
 import fr.sorbonne_u.components.connectors.AbstractConnector;
+
 import interfaces.P2PAddressI;
 import interfaces.PositionI;
 import interfaces.RegistrationCI;
 
-public class RegistrationServicesConnector extends AbstractConnector implements RegistrationCI{
+/**
+ * Classe permettant d'instancier un connecteur pour le simulateur.
+ * @author OBED
+ */
+public class RegistrationServicesConnector extends AbstractConnector implements RegistrationCI {
 
 	@Override
 	public Set<connectors.ConnectionInfo> registerInternal(P2PAddressI address, String communicationInboundPort,

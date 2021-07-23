@@ -10,7 +10,7 @@ import interfaces.P2PAddressI;
  * @author OBED
  */
 public class P2PAddress implements P2PAddressI, Serializable {
-	/** Numéro de série pour chaque instance.*/
+	/** Numéro de série pour chaque instance. */
 	private static final long serialVersionUID = 1L;
 	/** L'addresse elle-même. */
 	private String address;

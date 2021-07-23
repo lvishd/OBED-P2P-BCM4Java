@@ -1,25 +1,37 @@
 package ports;
 
+import fr.sorbonne_u.components.ComponentI;
+import fr.sorbonne_u.components.ports.AbstractOutboundPort;
+
 import interfaces.CommunicationCI;
 import interfaces.MessageI;
 import interfaces.P2PAddressI;
 
-import fr.sorbonne_u.components.ComponentI;
-import fr.sorbonne_u.components.ports.AbstractOutboundPort;
-
-
+/**
+ * Classe permettant de créer un service pour le port sortant du composant Communication.
+ * @author OBED
+ */
 public class CommunicationServicesOutBoundPort extends AbstractOutboundPort implements CommunicationCI{
-
+	/** Numéro de série pour chaque instance. */
 	private static final long serialVersionUID = 1L;
 	
-
-	public CommunicationServicesOutBoundPort(ComponentI owner) throws Exception {
-		super(CommunicationCI.class, owner);
+	/**
+	 * Constructeur d'un port sortant du composant Communication.
+	 * @param component le composant qui possède ce port.
+	 * @throws Exception une exception.
+	 */
+	public CommunicationServicesOutBoundPort(ComponentI component) throws Exception {
+		super(CommunicationCI.class, component);
 	}
 
-
-	public CommunicationServicesOutBoundPort(String uri, ComponentI owner) throws Exception {
-		super(uri,  CommunicationCI.class, owner);
+	/**
+	 * Constructeur d'un port sortant du composant Communication.
+	 * @param uri l'URI unique du port.
+	 * @param component le composant qui possède ce port.
+	 * @throws Exception une exception.
+	 */
+	public CommunicationServicesOutBoundPort(String uri, ComponentI component) throws Exception {
+		super(uri,  CommunicationCI.class, component);
 	}
 
 	@Override

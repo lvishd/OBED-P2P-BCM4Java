@@ -10,7 +10,7 @@ import interfaces.IPAddressI;
  * @author OBED
  */
 public class IPAddress implements IPAddressI, Serializable {
-	/** Numéro de série pour chaque instance.*/
+	/** Numéro de série pour chaque instance. */
 	private static final long serialVersionUID = 1L;
 	/** L'addresse elle-même. */
 	private String address;
