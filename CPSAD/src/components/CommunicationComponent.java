@@ -3,6 +3,7 @@ package components;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
 import fr.sorbonne_u.components.AbstractComponent;
 import fr.sorbonne_u.components.annotations.OfferedInterfaces;
 import fr.sorbonne_u.components.annotations.RequiredInterfaces;
@@ -23,6 +24,10 @@ import ports.CommunicationServicesInboundPort;
 import ports.CommunicationServicesOutBoundPort;
 import ports.RegisterServicesOutboundPort;
 
+/**
+ * Classe composant de Communication.
+ * @author OBED
+ */
 @RequiredInterfaces(required = { RegistrationCI.class, CommunicationCI.class, RoutingManagementCI.class })
 @OfferedInterfaces(offered = { CommunicationCI.class, RoutingManagementCI.class })
 public class CommunicationComponent extends AbstractComponent {
@@ -73,10 +78,10 @@ public class CommunicationComponent extends AbstractComponent {
 	}
 	
 	/**
-	 * Connecte le 
-	 * @param address
-	 * @param communicationInboundURI
-	 * @param routingInboundPortURI
+	 * Traite les connexions reçues et établies la connexion en retour.
+	 * @param address l'addresse qui souhaite se connecter.
+	 * @param communicationInboundURI l'URI du port entrant du composant de communication.
+	 * @param routingInboundPortURI l'URI du port entrant du routing.
 	 */
 	public void connect(P2PAddressI address, String communicationInboundURI, String routingInboundPortURI) {
 		try {
@@ -101,6 +106,13 @@ public class CommunicationComponent extends AbstractComponent {
 		}
 	}
 
+	/**
+	 * Connecte le noeud avec un autre noeud pour faire du P2P.
+	 * @param address1 le premier noeud.
+	 * @param address2 le deuxième noeud.
+	 * @param communicationInboundURI l'URI du port entrant du composant de communication.
+	 * @param routingInboundPortURI l'URI du port entrant du routing.
+	 */
 	public void connect(P2PAddressI address1, P2PAddressI address2, String communicationInboundURI,
 			String routingInboundPortURI) {
 		try {
@@ -122,11 +134,10 @@ public class CommunicationComponent extends AbstractComponent {
 	}
 
 	/**
-	 * 
+	 * Permet de transmettre un message.
 	 * @param m le message que l'on souhaite envoyer.
 	 */
 	public void routeMessage(MessageI m) {
-		int N = 2;
 		try {
 			if (this.address.equals(m.getAddress())) {
 				System.out.println("Un message reçu");
@@ -134,10 +145,7 @@ public class CommunicationComponent extends AbstractComponent {
 				return;
 			}
 			for (CommunicationServicesOutBoundPort port : communicationConnections.values()) {
-				if (N == 0)
-					break;
 				port.routeMessage(m);
-				N--;
 			}
 			return;
 		} catch (Exception e) {

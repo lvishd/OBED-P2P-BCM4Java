@@ -31,10 +31,10 @@ public class CVMMessage extends AbstractCVM {
 		AbstractComponent.createComponent(CommunicationComponent.class.getCanonicalName(),
 				new Object[] { new P2PAddress("192.168.25.2"), new Position(2, 2), 1120.0 });
 		
-		AbstractComponent.createComponent(CommunicationComponent.class.getCanonicalName(),
+		/*		AbstractComponent.createComponent(CommunicationComponent.class.getCanonicalName(),
 				new Object[] { new P2PAddress("192.168.25.3"), new Position(1, 3), 1120.0 });
 		
-		/*		AbstractComponent.createComponent(CommunicationComponent.class.getCanonicalName(),
+				AbstractComponent.createComponent(CommunicationComponent.class.getCanonicalName(),
 				new Object[] { new P2PAddress("192.168.25.3"), new Position(1, 2), 1120.0 });
 */
 		
